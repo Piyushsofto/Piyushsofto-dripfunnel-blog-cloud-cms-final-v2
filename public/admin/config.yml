@@ -1,9 +1,8 @@
 backend:
   name: git-gateway
-  repo: piyushsofto/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2
+  repo: Piyushsofto/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2
   branch: main
-
-  identity_url: https://auth.dripfunnel.com/sites/d07275d5-a1e0-4195-8237-68b4014c375b
+  identity_url: https://auth.dripfunnel.com/sites/04d62b64-016f-4dc9-a5e4-ce97342dbcb3
   gateway_url: https://gateway.dripfunnel.com
 
   commit_messages:
