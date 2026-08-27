@@ -1,7 +1,10 @@
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: "export",
 
-  basePath: "/decap-blog-template",
+  basePath: "/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2",
+
+  trailingSlash: true,
 
   images: {
     unoptimized: true,
@@ -25,3 +28,5 @@ module.exports = {
     return config;
   },
 };
+
+module.exports = nextConfig;
