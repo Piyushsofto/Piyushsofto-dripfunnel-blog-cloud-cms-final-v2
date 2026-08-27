@@ -1,61 +1,68 @@
-# DripFunnel Blog — Decap CMS
-#
-# CLOUD SOURCE OF TRUTH
-# ---------------------
-# This CMS stores blog Markdown and media in the GitHub repository.
-# Replace the repository placeholder below with the SAME repository
-# that deploys the DripFunnel Next.js website.
-#
-# Production flow:
-# Decap CMS → GitHub (cloud/versioned content) → deployment → Next.js → /blog
-#
-# IMPORTANT:
-# Decap's GitHub backend requires OAuth authentication. Configure your
-# production OAuth provider/callback for blog.dripfunnel.com before publishing.
-
 backend:
-  name: github
-  repo: Piyushsofto/dripfunnel-blog-cloud-cms-final-v2
+  name: git-gateway
+  repo: piyushsofto/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2
   branch: main
-  squash_merges: true
 
-# Useful for local Decap development only.
-local_backend: true
+  identity_url: https://auth.dripfunnel.com/sites/d07275d5-a1e0-4195-8237-68b4014c375b
+  gateway_url: https://gateway.dripfunnel.com
 
-media_folder: "public/uploads/blog"
-public_folder: "/uploads/blog"
+  commit_messages:
+    create: Create {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
+    update: Update {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
+    uploadMedia: Upload "{{path}}" - {{author-name}} via DecapBridge
+    deleteMedia: Delete "{{path}}" - {{author-name}} via DecapBridge
 
-site_url: https://dripfunnel.com
-display_url: https://dripfunnel.com
+logo_url: https://blog.dripfunnel.com/decapcms-with-bridge.svg
+
+site_url: https://piyushsofto.github.io/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2
+
+media_folder: public/images
+public_folder: /images
+
+publish_mode: editorial_workflow
 
 collections:
   - name: "posts"
-    label: "Posts"
-    label_singular: "Post"
+    label: "Blog Posts"
     folder: "content/blog"
     create: true
-    delete: true
     extension: "md"
     format: "frontmatter"
     slug: "{{slug}}"
-    sortable_fields: ["title", "date", "category", "featured"]
-    summary: "{{title}} — {{category}}"
+    identifier_field: "slug"
+    summary: "{{title}}"
+    preview_path: "blog/{{slug}}"
+
     fields:
-      - { label: "Slug", name: "slug", widget: "string", hint: "Bare slug only, e.g. welcome. Do not include /blog/." }
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
-      - { label: "Cover Image (Optional)", name: "coverImage", widget: "image", required: false, hint: "Used as the thumbnail on the blog listing page." }
-      - { label: "Publish Date", name: "date", widget: "datetime", required: false, format: "DD MMM YYYY" }
-      - { label: "Author", name: "author", widget: "string", default: "DripFunnel" }
-      - { label: "Category", name: "category", widget: "string", default: "Digital Marketing" }
-      - label: "Tags"
-        name: "tags"
-        widget: "list"
+      - label: "Slug"
+        name: "slug"
+        widget: "string"
+        required: true
+
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        required: true
+
+      - label: "Cover Image"
+        name: "coverImage"
+        widget: "image"
         required: false
-        allow_add: true
-      - { label: "Reading Time", name: "readingTime", widget: "string", default: "4 min read" }
-      - { label: "Featured", name: "featured", widget: "boolean", default: false }
-      - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
-      - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
-      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        format: "YYYY-MM-DD"
+        dateFormat: "YYYY-MM-DD"
+        timeFormat: false
+        required: true
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: false
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
