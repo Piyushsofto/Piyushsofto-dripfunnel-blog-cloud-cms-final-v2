@@ -6,7 +6,12 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-brand">
           <Link href="/" className="brand-logo footer-logo" aria-label="DripFunnel home">
-            <img src="/dripfunnel-logo-light.png" alt="DripFunnel" width="845" height="143" />
+          <img
+  src="/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2/images/dripfunnel-logo-light.png"
+  alt="DripFunnel"
+  width="845"
+  height="143"
+/>
           </Link>
           <p>Technology-Driven Marketing That Helps Your Business Grow.</p>
           <small>Powered by Softobotics</small>

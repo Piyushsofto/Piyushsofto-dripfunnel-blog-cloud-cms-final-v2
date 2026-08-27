@@ -22,7 +22,12 @@ export default function Header() {
     <header className="site-header">
       <div className="container nav">
         <Link href="/" className="brand-logo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-drip-blue" aria-label="DripFunnel home" onClick={() => setOpen(false)}>
-          <img src="/dripfunnel-logo-light.png" alt="DripFunnel" width="845" height="143" />
+          <img
+  src="/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2/images/dripfunnel-logo-light.png"
+  alt="DripFunnel"
+  width="845"
+  height="143"
+/>
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
