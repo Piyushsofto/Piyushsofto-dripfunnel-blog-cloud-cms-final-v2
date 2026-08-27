@@ -15,7 +15,7 @@
 
 backend:
   name: github
-  repo: YOUR_GITHUB_OWNER/YOUR_GITHUB_REPO
+  repo: Piyushsofto/dripfunnel-blog-cloud-cms-final-v2
   branch: main
   squash_merges: true
 
