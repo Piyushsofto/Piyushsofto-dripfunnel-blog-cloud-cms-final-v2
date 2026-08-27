@@ -2,12 +2,9 @@
 const nextConfig = {
   output: "export",
 
-  // MUST exactly match your GitHub repository name
-  // Example:
-  // https://piyushsoft.github.io/dripfunnel-blog-cloud-cms-final-v2/
-  basePath: "/dripfunnel-blog-cloud-cms-final-v2",
+  // GitHub Pages repository name
+  basePath: "/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2",
 
-  // Useful for GitHub Pages static hosting
   trailingSlash: true,
 
   images: {
