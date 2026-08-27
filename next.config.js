@@ -2,9 +2,7 @@
 const nextConfig = {
   output: "export",
 
-  basePath: "/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2",
-
-  trailingSlash: true,
+  basePath: "/dripfunnel-blog-cloud-cms-final-v2",
 
   images: {
     unoptimized: true,
