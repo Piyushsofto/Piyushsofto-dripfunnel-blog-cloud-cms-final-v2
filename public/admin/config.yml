@@ -7,11 +7,11 @@ backend:
   gateway_url: https://gateway.dripfunnel.com
 
   commit_messages:
-    create: Create {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
-    update: Update {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
-    delete: Delete {{collection}} "{{slug}}" - {{author-name}} via DecapBridge
-    uploadMedia: Upload "{{path}}" - {{author-name}} via DecapBridge
-    deleteMedia: Delete "{{path}}" - {{author-name}} via DecapBridge
+    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
 
 logo_url: https://blog.dripfunnel.com/decapcms-with-bridge.svg
 
@@ -23,6 +23,7 @@ public_folder: /images
 publish_mode: editorial_workflow
 
 collections:
+
   - name: "posts"
     label: "Blog Posts"
     folder: "content/blog"
@@ -35,10 +36,12 @@ collections:
     preview_path: "blog/{{slug}}"
 
     fields:
+
       - label: "Slug"
         name: "slug"
         widget: "string"
         required: true
+        hint: 'Bare slug only, e.g. "why-website-important"'
 
       - label: "Title"
         name: "title"
@@ -66,3 +69,4 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        required: true

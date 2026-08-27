@@ -3,7 +3,7 @@ const nextConfig = {
   output: "export",
 
   // GitHub Pages repository name
-  basePath: "/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2",
+basePath: "/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2",
 
   trailingSlash: true,
 
