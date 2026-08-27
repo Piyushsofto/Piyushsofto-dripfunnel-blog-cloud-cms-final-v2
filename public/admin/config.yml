@@ -14,7 +14,7 @@ backend:
 
 logo_url: https://blog.dripfunnel.com/decapcms-with-bridge.svg
 
-site_url: https://piyushsofto.github.io/Piyushsofto-dripfunnel-blog-cloud-cms-final-v2
+site_url: https://piyushsofto.github.io
 
 media_folder: public/images
 public_folder: /images
