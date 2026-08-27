@@ -1,0 +1,61 @@
+# DripFunnel Blog — Decap CMS
+#
+# CLOUD SOURCE OF TRUTH
+# ---------------------
+# This CMS stores blog Markdown and media in the GitHub repository.
+# Replace the repository placeholder below with the SAME repository
+# that deploys the DripFunnel Next.js website.
+#
+# Production flow:
+# Decap CMS → GitHub (cloud/versioned content) → deployment → Next.js → /blog
+#
+# IMPORTANT:
+# Decap's GitHub backend requires OAuth authentication. Configure your
+# production OAuth provider/callback for blog.dripfunnel.com before publishing.
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_OWNER/YOUR_GITHUB_REPO
+  branch: main
+  squash_merges: true
+
+# Useful for local Decap development only.
+local_backend: true
+
+media_folder: "public/uploads/blog"
+public_folder: "/uploads/blog"
+
+site_url: https://dripfunnel.com
+display_url: https://dripfunnel.com
+
+collections:
+  - name: "posts"
+    label: "Posts"
+    label_singular: "Post"
+    folder: "content/blog"
+    create: true
+    delete: true
+    extension: "md"
+    format: "frontmatter"
+    slug: "{{slug}}"
+    sortable_fields: ["title", "date", "category", "featured"]
+    summary: "{{title}} — {{category}}"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string", hint: "Bare slug only, e.g. welcome. Do not include /blog/." }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Cover Image (Optional)", name: "coverImage", widget: "image", required: false, hint: "Used as the thumbnail on the blog listing page." }
+      - { label: "Publish Date", name: "date", widget: "datetime", required: false, format: "DD MMM YYYY" }
+      - { label: "Author", name: "author", widget: "string", default: "DripFunnel" }
+      - { label: "Category", name: "category", widget: "string", default: "Digital Marketing" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        allow_add: true
+      - { label: "Reading Time", name: "readingTime", widget: "string", default: "4 min read" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "SEO Title", name: "seoTitle", widget: "string", required: false }
+      - { label: "SEO Description", name: "seoDescription", widget: "text", required: false }
+      - { label: "Canonical URL", name: "canonical", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }

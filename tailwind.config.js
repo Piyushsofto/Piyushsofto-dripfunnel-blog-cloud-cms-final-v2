@@ -1,0 +1,2 @@
+/** @type {import('tailwindcss').Config} */
+module.exports={content:["./app/**/*.{js,ts,jsx,tsx,mdx}","./components/**/*.{js,ts,jsx,tsx,mdx}","./lib/**/*.{js,ts,jsx,tsx,mdx}"],theme:{extend:{colors:{drip:{blue:"#00519F",orange:"#EC844F",ink:"#071522",navy:"#061725",soft:"#F5F7F9",line:"#DFE5EA"}},fontFamily:{sans:["DM Sans","sans-serif"],display:["Manrope","sans-serif"]},maxWidth:{content:"1240px"}}},corePlugins:{preflight:false},plugins:[]};
